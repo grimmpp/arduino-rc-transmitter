@@ -1,0 +1,9 @@
+00:34:14 **** Incremental Build of configuration Debug for project test ****
+make all 
+Cannot run program "make": Launching failed
+
+Error: Program "make" not found in PATH
+PATH=[C:/Program Files/Java/jre1.8.0_121/bin/server;C:/Program Files/Java/jre1.8.0_121/bin;C:/Program Files/Java/jre1.8.0_121/lib/amd64;C:\Program Files (x86)\Intel\iCLS Client\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\Philipp\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Program Files\Cloud Foundry;C:\Python27\Scripts;;C:\Program Files (x86)\msb-4.6.0;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Users\Philipp\AppData\Local\Microsoft\WindowsApps;C:\Users\Philipp\AppData\Roaming\npm;C:\Users\Philipp\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Philipp\AppData\Local\atom\bin;C:\Program Files\apache-maven-3.3.9\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;;C:\Users\Philipp\Documents\eclipse]
+
+00:34:14 Build Finished (took 63ms)
+

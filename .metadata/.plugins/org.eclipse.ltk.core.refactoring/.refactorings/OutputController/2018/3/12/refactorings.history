@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;OutputController/MenuStateController.h&apos; to &apos;MenuStateController.cpp&apos;" description="Rename resource &apos;MenuStateController.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="MenuStateController.h" name="MenuStateController.cpp" stamp="1521409501403" updateReferences="true"/>
+</session>

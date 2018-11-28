@@ -1,0 +1,156 @@
+#include <TFT.h> // Hardware-specific library
+
+class JoyStickScreen {
+private:
+	const char tft_first_column = 0;
+	const char tft_first_row = 8;
+	const char tft_last_row = 125;
+	const char tft_last_column = 159;
+	const char tft_middle_row = (tft_last_row - tft_first_row)/2 + tft_first_row +8;
+	const char tft_quarter_column = tft_last_column / 4 - 4;
+	TFT * TFTscreen;
+
+public:
+	JoyStickScreen::JoyStickScreen(TFT TFTscreen) {
+		this->TFTscreen = TFTscreen;
+	}
+
+void JoyStickScreen::showJoyStickScreen(boolean init, boolean showInit, boolean hideInit) {
+  char boxLength = 12;
+  char shortEdge = boxLength/2;
+  char longEdge = boxLength;
+  char middleEdge = (shortEdge+longEdge)/2;
+  char space = boxLength/6;
+
+  if (hideInit) {
+    // remove init text
+    TFTscreen.stroke(0,0,0);
+    TFTscreen.setTextSize(2);
+    TFTscreen.text("Initialize", tft_first_column+4, tft_first_row+4);
+
+    TFTscreen.stroke(80,80,80);
+    TFTscreen.setTextSize(1);
+    TFTscreen.text("Control IT!", tft_first_column+6, tft_first_row+6);
+
+    showsInitialize = false;
+  }
+
+  if (init) {
+    // red border
+    TFTscreen.stroke(0,0,120);
+    TFTscreen.fill(0,0,0);
+    TFTscreen.rect(tft_first_column, tft_first_row, tft_last_column-tft_first_column, tft_last_row-tft_first_row);
+
+    // grey center boxes
+    TFTscreen.stroke(80,80,80);
+    TFTscreen.fill(80,80,80);
+    TFTscreen.rect(tft_quarter_column - boxLength/2, tft_middle_row - boxLength/2, boxLength, boxLength);
+    TFTscreen.rect(tft_last_column-tft_quarter_column - boxLength/2, tft_middle_row - boxLength/2, boxLength, boxLength);
+  }
+
+  //grey rect boxes
+  TFTscreen.stroke(80,80,80);
+  for(char i=1; i<=3; i++) {
+    short upperBorder = 109;
+    short lowerBorder = 146;
+    // top
+    boolean colourizeNew = values.poti_left_Y >= upperBorder + i* 36.5;
+    boolean colourizeOld = values_old.poti_left_Y >= upperBorder + i* 36.5;
+//Serial.print(i); Serial.print(" poti_left_Y: "); Serial.print(values.poti_left_Y); Serial.print(" "); Serial.println(colourizeNew);
+    if (init || colourizeOld != colourizeNew) {
+      setButtonColorBlue( colourizeNew );
+      TFTscreen.rect(tft_quarter_column - longEdge/2, tft_middle_row - space*i - shortEdge*(i+1), longEdge, shortEdge);
+    }
+    colourizeNew = values.poti_right_Y >= upperBorder + i* 36.5;
+    colourizeOld = values_old.poti_right_Y >= upperBorder + i* 36.5;
+    if (init || colourizeOld != colourizeNew) {
+      setButtonColorBlue( colourizeNew );
+      TFTscreen.rect(tft_last_column-tft_quarter_column - longEdge/2, tft_middle_row - space*i - shortEdge*(i+1), longEdge, shortEdge);
+    }
+    //bottom
+    colourizeNew = values.poti_left_Y <= lowerBorder - i* 36.5;
+    colourizeOld = values_old.poti_left_Y <= lowerBorder - i* 36.5;
+    if (init || colourizeOld != colourizeNew) {
+      setButtonColorBlue( colourizeNew );
+      TFTscreen.rect(tft_quarter_column - longEdge/2, tft_middle_row + space*i + shortEdge*i, longEdge, shortEdge);
+    }
+    colourizeNew = values.poti_right_Y <= lowerBorder - i* 36.5;
+    colourizeOld = values_old.poti_right_Y <= lowerBorder - i* 36.5;
+    if (init || colourizeOld != colourizeNew) {
+      setButtonColorBlue( colourizeNew );
+      TFTscreen.rect(tft_last_column-tft_quarter_column - longEdge/2, tft_middle_row + space*i + shortEdge*i, longEdge, shortEdge);
+    }
+    //left
+    colourizeNew = values.poti_left_X <= lowerBorder - i* 36.5;
+    colourizeOld = values_old.poti_left_X <= lowerBorder - i* 36.5;
+    if (init || colourizeOld != colourizeNew) {
+      setButtonColorBlue( colourizeNew );
+      TFTscreen.rect(tft_quarter_column - space*i - shortEdge*(i+1), tft_middle_row - longEdge/2, shortEdge, longEdge);
+    }
+    colourizeNew = values.poti_right_X <= lowerBorder - i* 36.5;
+    colourizeOld = values_old.poti_right_X <= lowerBorder - i* 36.5;
+    if (init || colourizeOld != colourizeNew) {
+      setButtonColorBlue( colourizeNew );
+      TFTscreen.rect(tft_last_column-tft_quarter_column - space*i - shortEdge*(i+1), tft_middle_row - longEdge/2, shortEdge, longEdge);
+    }
+    //right
+    colourizeNew = values.poti_left_X >= upperBorder + i* 36.5;
+    colourizeOld = values_old.poti_left_X >= upperBorder + i* 36.5;
+    if (init || colourizeOld != colourizeNew) {
+      setButtonColorBlue( colourizeNew );
+      TFTscreen.rect(tft_quarter_column + space*i + shortEdge*i, tft_middle_row - longEdge/2, shortEdge, longEdge);
+    }
+    colourizeNew = values.poti_right_X >= upperBorder + i* 36.5;
+    colourizeOld = values_old.poti_right_X >= upperBorder + i* 36.5;
+    if (init || colourizeOld != colourizeNew) {
+      setButtonColorBlue( colourizeNew );
+      TFTscreen.rect(tft_last_column-tft_quarter_column + space*i + shortEdge*i, tft_middle_row - longEdge/2, shortEdge, longEdge);
+    }
+  }
+
+  //buttoms bottom
+  char buttonLength = 6*shortEdge + 6*space + boxLength;
+  if (init || values_old.btn_bottom_left != values.btn_bottom_left) {
+    setButtonColorGreen(values.btn_bottom_left & !init);
+    TFTscreen.rect(tft_quarter_column - buttonLength/2, tft_middle_row + buttonLength/2 + 2*space, buttonLength, middleEdge);
+  }
+  if (init || values_old.btn_bottom_right != values.btn_bottom_right) {
+    setButtonColorGreen(values.btn_bottom_right & !init);
+    TFTscreen.rect(tft_last_column-tft_quarter_column - buttonLength/2, tft_middle_row + buttonLength/2 + 2*space, buttonLength, middleEdge);
+  }
+  //buttoms top
+  if (init || values_old.btn_top_left != values.btn_top_left) {
+    setButtonColorGreen(values.btn_top_left & !init);
+    TFTscreen.rect(tft_quarter_column - buttonLength/2, tft_middle_row - buttonLength/2 - 2*space - middleEdge, buttonLength, middleEdge);
+  }
+  if (init || values_old.btn_top_right != values.btn_top_right) {
+    setButtonColorGreen(values.btn_top_right & !init);
+    TFTscreen.rect(tft_last_column-tft_quarter_column - buttonLength/2, tft_middle_row - buttonLength/2 - 2*space - middleEdge, buttonLength, middleEdge);
+  }
+  //buttons middle
+  if (init || values_old.btn_middle_left != values.btn_middle_left) {
+    setButtonColorGreen(values.btn_middle_left & !init);
+    TFTscreen.rect(tft_quarter_column + buttonLength/2 + 2*space, tft_middle_row - buttonLength/2, middleEdge, buttonLength);
+  }
+  if (init || values_old.btn_middle_right != values.btn_middle_right) {
+    setButtonColorGreen(values.btn_middle_right & !init);
+    TFTscreen.rect(tft_last_column-tft_quarter_column - buttonLength/2 - 2*space - middleEdge, tft_middle_row - buttonLength/2, middleEdge, buttonLength);
+  }
+
+  // show initialized
+  if (showInit) {
+    TFTscreen.stroke(0,0,0);
+    TFTscreen.setTextSize(1);
+    TFTscreen.text("Control IT!", tft_first_column+6, tft_first_row+6);
+
+    TFTscreen.stroke(255,255,255);
+    TFTscreen.setTextSize(2);
+    TFTscreen.text("Initialize", tft_first_column+4, tft_first_row+4);
+
+    showsInitialize = true;
+  }
+
+  values_old = values;
+}
+
+}

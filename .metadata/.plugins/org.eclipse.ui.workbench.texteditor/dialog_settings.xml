@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="setServo" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="setServo"/>
+			<item value="serial"/>
+			<item value="red"/>
+			<item value="nrfMsg-&gt;"/>
+			<item value="-&gt;"/>
+			<item value="increaseIndex"/>
+			<item value="menu"/>
+			<item value="oldIndex"/>
+			<item value="indexChanged"/>
+			<item value="drawMenuEntryArrows"/>
+			<item value="iteration"/>
+			<item value="ce"/>
+			<item value="set"/>
+			<item value="value"/>
+			<item value="receiver"/>
+		</list>
+		<list key="replacehistory">
+			<item value="nrfMsg."/>
+			<item value="."/>
+			<item value="uint8_t"/>
+			<item value="uint8_t "/>
+			<item value="MenuStateController::"/>
+			<item value="state"/>
+			<item value="//if (debug) Serial."/>
+			<item value="currentState"/>
+			<item value="this-&gt;oldState"/>
+			<item value="data"/>
+			<item value="tB.tft_first_row"/>
+			<item value="tB.tft_first_column"/>
+			<item value="tB.tft_middle_row"/>
+			<item value="tB.tft_last_column"/>
+			<item value="tB.tft_quarter_column"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="336" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="454" key="DIALOG_HEIGHT"/>
+		<item value="1543" key="DIALOG_X_ORIGIN"/>
+		<item value="141" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

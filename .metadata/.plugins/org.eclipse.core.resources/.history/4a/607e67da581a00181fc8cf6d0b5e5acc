@@ -1,0 +1,10 @@
+#include <TFT.h> // Hardware-specific library
+
+#define tft_first_column 0
+#define tft_first_row 8
+#define tft_last_row 125
+#define tft_last_column 159
+const char tft_middle_row = (tft_last_row - tft_first_row)/2 + tft_first_row +8;
+const char tft_quarter_column = tft_last_column / 4 - 4;
+
+
