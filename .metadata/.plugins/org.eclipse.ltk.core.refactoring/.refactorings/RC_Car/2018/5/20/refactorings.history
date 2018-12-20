@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;RC_Car/Stearing.cpp&apos; to &apos;Steering.cpp&apos;" description="Rename resource &apos;Stearing.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Stearing.cpp" name="Steering.cpp" stamp="1526235730861" updateReferences="true"/>
-</session>
