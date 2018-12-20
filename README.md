@@ -11,9 +11,17 @@ The board has two controllers (Arduino Nano). The right one is listening for inp
 * There are **2 joysticks** and there using is also visualized on the tft display.
 * There is **RGB LED** below the **2.4G antenna** which shows if the transmitter is switched on and changes the color if it is connected.
 * After switching the transmitter on you have to calibrate the joysticks because their behavior depends on battery level.
+* The 2 button in the center are for choosing a profile out of the range from A to Z. It is up to the receive how to react on it.
 * If you press the 4 outter buttons at the same tinme you will land up in a **menu**. The menu contains **profiles** of different devices to connect to and it allows you to switch between them.  
 * If the transmitter is connected to another device it will send it's status frequently. 
 ```c++
+class NrfMessage : public ButtonValues {
+public:
+  char mode = '0';
+
+  void print();
+};
+
 class ButtonValues {
 public:
   bool initialized = false;
