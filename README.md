@@ -40,27 +40,27 @@ public:
     Project Link: <a href="/Original_Adeept_Smart_Car/README.md">Software for Adeept RC Car - Original_Adeept_Smart_Car</a> <br />
     Product Link: <a href="http://www.adeept.com/adeept-remote-control-smart-car-kit-for-arduino-based-on-nrf24l01-24g-wireless-robot-starter-kit-with-pdf-guidebook-tutorial_p0025_s0020.html">Adeept Remote Control Smart Car Kit for Arduino based on NRF24L01 2.4G Wireless, Robot Starter Kit with PDF Guidebook/Tutorial</a>
   </td>
-  <td><img src="./Original_Adeept_Smart_Car/pics/0a53ef6784.jpg" alt="drawing" width="150"/></td>
+  <td><img src="./Original_Adeept_Smart_Car/pics/0a53ef6784.jpg" width="150"/></td>
 </tr>
   
 <tr><td>
-Project Link: <a href="/4WD_RC_Car_AddeptDriverBoard/README.md">Software for 4WD Car - based on Arduino Uno and Adeept Smart Car Motor Driver</a>
+Project Link: <a href="./4WD_RC_Car_AddeptDriverBoard/README.md">Software for 4WD Car - based on Arduino Uno and Adeept Smart Car Motor Driver</a>
   </td>
-  <td><img src="./4WD_RC_Car_AddeptDriverBoard/pics/20181220_181335.jpg" alt="drawing" width="150"/></td>
+  <td><img src="./4WD_RC_Car_AddeptDriverBoard/pics/20181220_181335.jpg" width="150"/></td>
 </td></tr>
   
 </table>
 
 # Pictures
 <table><tr>
-  <td><img src="./pics/20180218_134300.jpg" alt="drawing" width="150"/></td>
-  <td><img src="./pics/20180211_222924.jpg" alt="drawing" width="150"/></td>
-  <td><img src="./pics/20180211_224645.jpg" alt="drawing" width="150"/></td>
-  <td><img src="./pics/20180203_153620.jpg" alt="drawing" width="150"/></td>
+  <td><img src="./pics/20180218_134300.jpg" width="150"/></td>
+  <td><img src="./pics/20180211_222924.jpg" width="150"/></td>
+  <td><img src="./pics/20180211_224645.jpg" width="150"/></td>
+  <td><img src="./pics/20180203_153620.jpg" width="150"/></td>
 </tr><tr>
-  <td><img src="./pics/20180211_224707.jpg" alt="drawing" width="150"/></td>
-  <td><img src="./pics/20180213_222834.jpg" alt="drawing" width="150"/></td>
-  <td><img src="./pics/20180213_222848.jpg" alt="drawing" width="150"/></td>
-  <td><img src="./pics/20180128_221520.jpg" alt="drawing" width="150"/></td>
-  <td><img src="./pics/schema.jpg" alt="drawing" width="150"/></td>
+  <td><img src="./pics/20180211_224707.jpg" width="150"/></td>
+  <td><img src="./pics/20180213_222834.jpg" width="150"/></td>
+  <td><img src="./pics/20180213_222848.jpg" width="150"/></td>
+  <td><img src="./pics/20180128_221520.jpg" width="150"/></td>
+  <td><img src="./pics/schema.jpg" width="150"/></td>
 </tr></table>
