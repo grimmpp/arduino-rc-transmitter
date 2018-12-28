@@ -86,5 +86,6 @@ All definitions about which environments exist and which boards I used is define
   <td><img src="pics/20180213_222834.jpg" width="150"/></td>
   <td><img src="pics/20180213_222848.jpg" width="150"/></td>
   <td><img src="pics/20180128_221520.jpg" width="150"/></td>
+</tr><tr>
   <td><img src="pics/schema.jpg" width="150"/></td>
 </tr></table>
