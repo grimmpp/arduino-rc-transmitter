@@ -75,6 +75,22 @@ pio run -e Transmitter_ButtonsController -t upload  # Uploads only the subprojec
 
 All definitions about which environments exist and which boards I used is defined in [platformio.ini](platformio.ini) file.
 
+## Build Repo in Docker Image
+I've provided a [dockerfile](docker/Dockerfile) which creates a docker image. This docker image contains everything to run platformio in order to build the repo. It consits mainly of ubuntu, python2, platformio, and this repo. The only prerequiste is to have [docker](https://www.docker.com/get-started) or [docker toolbox](https://docs.docker.com/v17.12/toolbox/) installed. By executing the following command the docker image will be created containing the latest repo version which will be also build during the image creation.
+
+```bash
+cd arduino-rc-transmitter   # go into the repo root direcotry
+docker build -t arduino-rc-transmitter docker   # builds the docker image
+```
+
+You can use the docker image as build and/or development environment. Just start the image by using the following command:
+
+```bash
+docker run -it arduino-rc-transmitter
+```
+
+Now you can reuse the command from above to build the projects and upload the binary code to micro controllers. You can find therefore the repo downloaded and prepared in */home/arduino-rc-transmitter*.
+
 # Pictures
 <table><tr>
   <td><img src="pics/20180218_134300.jpg" width="150"/></td>
