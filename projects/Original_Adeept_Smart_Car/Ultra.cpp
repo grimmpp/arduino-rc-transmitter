@@ -6,7 +6,7 @@
  */
 #include <Servo.h>
 
-#include <PinAssign.cpp>
+#include "PinAssign.cpp"
 
 #ifndef Ultra_Def
 #define Ultra_Def

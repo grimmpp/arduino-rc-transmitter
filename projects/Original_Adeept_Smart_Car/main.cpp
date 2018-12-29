@@ -4,11 +4,11 @@
 #include <RF24.h>
 #include <Servo.h>
 // local libs
-#include <PinAssign.cpp>
-#include <Lights.cpp>
-#include <Steering.cpp>
-#include <Motor.cpp>
-#include <Ultra.cpp>
+#include "PinAssign.cpp"
+#include "Lights.cpp"
+#include "Steering.cpp"
+#include "Motor.cpp"
+#include "Ultra.cpp"
 // shared btw projects
 #include <NrfMessage.h>
 #include <NrfMessage.cpp>
@@ -29,7 +29,7 @@ Motor motorLeft = Motor(PinAssign::MotorBDirPin, PinAssign::MotorBpwmPin);
 
 void setup() {
 	Serial.begin(115200);
-	Serial.println("Start initializing ...");
+	Serial.println("Start initializing Original_Adeept_Smart_Car ...");
 
 	Serial.println("Init lights ...");
 	lights.init();

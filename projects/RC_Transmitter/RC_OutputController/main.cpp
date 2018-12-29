@@ -48,7 +48,7 @@ StateController *stateController;
 
 void setup() {
 	Serial.begin(115200);
-	Serial.println("Start to initialize ...");
+	Serial.println("Start to initialize RC_OutputController ...");
 
 	display = new Display(tft_cs, tft_dc, tft_rst);
 
@@ -66,7 +66,7 @@ void setup() {
 
 	Nrf24Controller::initRF24(nrf_ce, nrf_cs);
 
-	Serial.println("Start");
+	Serial.println("Started");
 }
 
 uint8_t iteration=0;

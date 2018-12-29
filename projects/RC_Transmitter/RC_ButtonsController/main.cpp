@@ -29,19 +29,22 @@ char initPhase = 0;
 ButtonValues values;
 
 void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(115200);
-  pinMode(pinBtnBottomLeft, INPUT);
-  pinMode(pinBtnMiddleLeft, INPUT);
-  pinMode(pinBtnBottomRight, INPUT);
-  pinMode(pinBtnMiddleRight, INPUT);
-  pinMode(pinBtnTopLeft, INPUT);
-  pinMode(pinBtnTopRight, INPUT);
+	// put your setup code here, to run once:
+	Serial.begin(115200);
 
-  interConnector = new InterConnector(A4, A5); // RX, TX
-  initPhase = 0;
+	Serial.println("Start RC_ButtonsController ...");
+
+	pinMode(pinBtnBottomLeft, INPUT);
+	pinMode(pinBtnMiddleLeft, INPUT);
+	pinMode(pinBtnBottomRight, INPUT);
+	pinMode(pinBtnMiddleRight, INPUT);
+	pinMode(pinBtnTopLeft, INPUT);
+	pinMode(pinBtnTopRight, INPUT);
+
+	interConnector = new InterConnector(A4, A5); // RX, TX
+	initPhase = 0;
   
-  Serial.println("Start");
+	Serial.println("Started");
 }
 
 int mapToRange(int val) {

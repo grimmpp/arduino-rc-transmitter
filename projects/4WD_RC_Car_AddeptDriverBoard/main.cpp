@@ -22,7 +22,7 @@ Motor motorLeft = Motor(PinAssign::MotorBDirPin, PinAssign::MotorBpwmPin);
 
 void setup() {
 	Serial.begin(115200);
-	Serial.println("Start initializing ...");
+	Serial.println("Start initializing 4WD_RC_Car_AddeptDriverBoard ...");
 
 	Serial.println("Init NRF24 ...");
 	radio.begin();                      // initialize RF24

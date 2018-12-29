@@ -6,7 +6,7 @@
  */
 
 #include <Arduino.h>
-#include <PinAssign.cpp>
+#include "PinAssign.cpp"
 
 #ifndef Lights_Def
 #define Lights_Def

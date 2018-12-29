@@ -6,7 +6,7 @@
  */
 
 #include <Arduino.h>
-#include <PinAssign.cpp>
+#include "PinAssign.cpp"
 
 #ifndef Motor_Def
 #define Motor_Def
