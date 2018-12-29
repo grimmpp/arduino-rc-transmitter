@@ -75,6 +75,14 @@ pio run -e Transmitter_ButtonsController -t upload  # Uploads only the subprojec
 
 All definitions about which environments exist and which boards I used is defined in [platformio.ini](platformio.ini) file.
 
+You can check whether your uploads worked by having a look on the device monitor. Therefore just let the usb cable plugged in the board and execute the following command. I used for all boards the baud rate of 115200. The port will usually be chosen automatically.
+
+```bash
+cd arduino-rc-transmitter     # Go into the repo root directory
+pio device monitor -b 115200  # Start serial monitor to see logs from board
+```
+
+
 ## Build Repo in Docker Image
 I've provided a [dockerfile](docker/Dockerfile) which creates a docker image. This docker image contains everything to run platformio in order to build the repo. It consists mainly of ubuntu, python2, platformio, and this repo. The only prerequisite is to have [docker](https://www.docker.com/get-started) or [docker toolbox](https://docs.docker.com/v17.12/toolbox/) installed. By executing the following command the docker image will be created containing the latest repo version which will be also build during the image creation.
 
@@ -90,13 +98,6 @@ docker run -it arduino-rc-transmitter   # Start docker container
 ```
 
 Now you can reuse the command from above to build the projects and upload the binary code to micro controllers. You can find therefore the repo downloaded and prepared in */home/arduino-rc-transmitter*.
-
-You can check whether your uploads worked by having a look on the device monitor. Therefore just let the usb cable plugged in the board and execute the following command. I used for all boards the baud rate of 115200. The port will usually be chosen automatically.
-
-```bash
-cd arduino-rc-transmitter     # Go into the repo root directory
-pio device monitor -b 115200  # Start serial monitor to see logs from board
-```
 
 # Pictures
 <table><tr>
