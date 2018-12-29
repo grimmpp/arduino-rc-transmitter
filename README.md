@@ -12,7 +12,7 @@ The board has two controllers (Arduino Nano). The right one is listening for inp
 * There is **RGB LED** below the **2.4G antenna** which shows if the transmitter is switched on and changes the color if it is connected.
 * After switching the transmitter on you have to calibrate the joysticks because their behavior depends on battery level.
 * The 2 button in the center are for choosing a profile out of the range from A to Z. It is up to the receive how to react on it.
-* If you press the 4 outter buttons at the same tinme you will land up in a **menu**. The menu contains **profiles** of different devices to connect to and it allows you to switch between them.  
+* If you press the 4 outer buttons at the same time you will land up in a **menu**. The menu contains **profiles** of different devices to connect to and it allows you to switch between them.  
 * If the transmitter is connected to another device it will send it's status frequently. 
 ```c++
 class NrfMessage : public ButtonValues {
@@ -76,20 +76,27 @@ pio run -e Transmitter_ButtonsController -t upload  # Uploads only the subprojec
 All definitions about which environments exist and which boards I used is defined in [platformio.ini](platformio.ini) file.
 
 ## Build Repo in Docker Image
-I've provided a [dockerfile](docker/Dockerfile) which creates a docker image. This docker image contains everything to run platformio in order to build the repo. It consits mainly of ubuntu, python2, platformio, and this repo. The only prerequiste is to have [docker](https://www.docker.com/get-started) or [docker toolbox](https://docs.docker.com/v17.12/toolbox/) installed. By executing the following command the docker image will be created containing the latest repo version which will be also build during the image creation.
+I've provided a [dockerfile](docker/Dockerfile) which creates a docker image. This docker image contains everything to run platformio in order to build the repo. It consists mainly of ubuntu, python2, platformio, and this repo. The only prerequisite is to have [docker](https://www.docker.com/get-started) or [docker toolbox](https://docs.docker.com/v17.12/toolbox/) installed. By executing the following command the docker image will be created containing the latest repo version which will be also build during the image creation.
 
 ```bash
-cd arduino-rc-transmitter   # go into the repo root direcotry
+cd arduino-rc-transmitter                       # go into the repo root directory
 docker build -t arduino-rc-transmitter docker   # builds the docker image
 ```
 
 You can use the docker image as build and/or development environment. Just start the image by using the following command:
 
 ```bash
-docker run -it arduino-rc-transmitter
+docker run -it arduino-rc-transmitter   # Start docker container
 ```
 
 Now you can reuse the command from above to build the projects and upload the binary code to micro controllers. You can find therefore the repo downloaded and prepared in */home/arduino-rc-transmitter*.
+
+You can check whether your uploads worked by having a look on the device monitor. Therefore just let the usb cable plugged in the board and execute the following command. I used for all boards the baud rate of 115200. The port will usually be chosen automatically.
+
+```bash
+cd arduino-rc-transmitter     # Go into the repo root directory
+pio device monitor -b 115200  # Start serial monitor to see logs from board
+```
 
 # Pictures
 <table><tr>
