@@ -11,7 +11,7 @@ RUN apt-get update && apt-get update	&& \
 RUN pip install -U platformio
 
 # clone repo
-RUN cd /home && git clone https://github.com/grimmpp/arduino-rc-transmitter.git
+RUN cd /home && git clone https://github.com/grimmpp/radio-controlled-arduino-devices.git
 
 # run platformio: download all dependencies and build projects
-RUN cd /home/arduino-rc-transmitter && pio run
+RUN cd /home/radio-controlled-arduino-devices && pio run
