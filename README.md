@@ -109,10 +109,12 @@ Now you can reuse the command from above to build the projects and upload the bi
 # Pictures
 <table><tr>
   <td><img src="projects/RC_Transmitter/pics/20180218_134300_small.jpg" /></td>
+  <td><img src="projects/RC_Transmitter/pics/20180128_221520_small.jpg" /></td>
   <td><img src="projects/RC_Transmitter/pics/20180213_222848_small.jpg" /></td>
   <td><img src="projects/RC_Transmitter/pics/20180211_224645_small.jpg" /></td>
   <td><img src="projects/RC_Transmitter/pics/schema_small.jpg" /></td>
 </tr><tr>
+  <td><img src="projects/4WD_RC_Car_AddeptDriverBoard/pics/20181218_214606_small.jpg"/></td>
   <td><img src="projects/4WD_RC_Car_AddeptDriverBoard/pics/20181220_181335_small.jpg"/></td>
   <td><img src="projects/4WD_RC_Car_AddeptDriverBoard/pics/20181218_135337_small.jpg" /></td>
   <td><img src="projects/Adeept_Smart_Car_Kit/pics/0a53ef6784_small.jpg" /></td>
