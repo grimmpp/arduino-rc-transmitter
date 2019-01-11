@@ -75,16 +75,39 @@ In this project I built a 4WD Car based on an Arduino Uno Board, the Motor Drive
 
 </table>
 
-# How to build the Projects
-
-This whole repository is based on platformio and the projects in here are actually define as different environment in the [platformio.ini](/platformio.ini) file. Have a look into the file for more details. 
+# Build and Upload Projects to an Arduino
+This repository is based on [platformio](http://docs.platformio.org) and all projects in this repository can be build by executing the following command. 
 As prerequisite for building this repository you need to install [platformio](https://platformio.org/platformio-ide). I personally install [VSCode](https://code.visualstudio.com) and within VSCode I installed the [platformio-ide extension](https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide). 
-By executing the following commands you can build all projects within one sitting:
+This example:
+1. downloads the whole repository from git,
+2. goes into the repository root folder,
+3. and executes the build command from platformio. It will initially download all dependencies and packages and then it will build all projects mentioned above. At the end of the whole procedure you will get a summary and state of what was built and if it were successfully.
 <b>
 ```bash
 git clone https://github.com/grimmpp/radio-controlled-arduino-devices.git   # download the repository from git
 cd radio-controlled-arduino-devices                                         # go into the repository root directory
 pio run                                                                     # download all dependencies initially and builds all projects
+```
+</b>
+
+The projects in here are actually define as different environment in the [platformio.ini](/platformio.ini) file. Have a look into the file for more details. 
+You can also specify one specific project by using an environment in order to build only one and upload it to a device.
+
+If you want to upload a project to a micro controller just choose the project by passing an environment name and the target upload. In the following example I choose *Transmitter_ButtonsController* as environment. This example will build the project and upload the binaries in an Arduino Nano is connected to an USB Port.
+<b>
+```bash
+pio run -e Transmitter_ButtonsController -t upload  # Uploads only the subproject Transmitter_ButtonsController
+```
+</b>
+All definitions about which environments exist and which boards I used is defined in [platformio.ini](platformio.ini) file.
+
+## Monitor Serial Port (logs) from connected Arduino
+
+You can check whether your uploads worked by having a look on the device monitor. Therefore just let the usb cable plugged in the board and execute the following command. I used for all boards the baud rate of 115200. The port will usually be chosen automatically.
+<b>
+```bash
+cd arduino-rc-transmitter     # Go into the repo root directory
+pio device monitor -b 115200  # Start serial monitor to see logs from board
 ```
 </b>
 
