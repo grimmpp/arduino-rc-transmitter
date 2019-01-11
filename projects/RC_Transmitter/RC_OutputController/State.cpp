@@ -2,8 +2,8 @@
 #ifndef DisplayButtonData_Def
 #define DisplayButtonData_Def
 
-#include "../RC_Library/ButtonValues.h"
-#include "MenuStateController.cpp"
+#include <ButtonValues.h>
+#include "./MenuStateController.cpp"
 
 class State : public ButtonValues {
 

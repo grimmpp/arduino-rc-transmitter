@@ -1,6 +1,7 @@
 #include <Arduino.h>
 
-#include "../RC_Library/ButtonValues.h"
+#include <ButtonValues.h>
+
 #include "./State.cpp"
 
 class StateController {

@@ -4,7 +4,7 @@
 
 #include "./State.cpp"
 
-#include "../RC_Library/NrfMessage.h"
+#include <NrfMessage.h>
 
 static RF24* rf24;
 static uint8_t profileIndex;

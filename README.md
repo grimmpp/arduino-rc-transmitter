@@ -1,115 +1,120 @@
-# Arduino RC Transmitter
+# Radio Controlled Arduino Devices
 
-This project started because I was not completely able to decrypt the protocol of a simple RC transmitter which I already owned. I decided to build the electronics by my own, replaced the existing board, and reused the body and its buttons also because I wanted it to be more feature rich.
+This repo is a collection of projects which are about remote controlled devices and its remote controls. All projects are based on arduino boards and radio control (2.4GHz). The transmitter and remote controlled devices are all compatible. The software for the Atmega Controller / Arduino Boards are written in c++ and based on the [platformio](https://platformio.org) framework.
 
-# Setup
-The board has two controllers (Arduino Nano). The right one is listening for input signals (buttons and joysticks) and sends them periodically to the left one which controls the TFT-display and the 2.4GHz antenna.
+Find a list about the projects below.
 
-## Functionality & Features
-* The transmitter can be switched **on or off** by using the button in the center.
-* There are **6 push buttons** and by using them they appear green on the **tft display**.
-* There are **2 joysticks** and there using is also visualized on the tft display.
-* There is **RGB LED** below the **2.4G antenna** which shows if the transmitter is switched on and changes the color if it is connected.
-* After switching the transmitter on you have to calibrate the joysticks because their behavior depends on battery level.
-* The 2 button in the center are for choosing a profile out of the range from A to Z. It is up to the receive how to react on it.
-* If you press the 4 outer buttons at the same time you will land up in a **menu**. The menu contains **profiles** of different devices to connect to and it allows you to switch between them.  
-* If the transmitter is connected to another device it will send it's status frequently. 
-```c++
-class NrfMessage : public ButtonValues {
-public:
-  char mode = '0';
 
-  void print();
-};
+# Projects
+You can find the descriptions of the single projects within the subfolders of the [project folder](/projects). 
 
-class ButtonValues {
-public:
-  bool initialized = false;
-
-  bool btn_bottom_right = false;
-  bool btn_bottom_left = false;
-  bool btn_middle_right = false;
-  bool btn_middle_left = false;
-  bool btn_top_right = false;
-  bool btn_top_left = false;
-
-  unsigned char poti_right_X = 127;
-  unsigned char poti_right_Y = 127;
-  unsigned char poti_left_X = 127;
-  unsigned char poti_left_Y = 127;
-
-  void print();
-};
-```
-
-# Subprojects
 <table>
-  <tr><td>
-    Project Link: <a href="projects/Adeept_Smart_Car_Kit/Adeept_RC_Car">Software for Adeept RC Car - Original_Adeept_Smart_Car</a> <br />
-    Product Link: <a href="http://www.adeept.com/adeept-remote-control-smart-car-kit-for-arduino-based-on-nrf24l01-24g-wireless-robot-starter-kit-with-pdf-guidebook-tutorial_p0025_s0020.html">Adeept Remote Control Smart Car Kit for Arduino based on NRF24L01 2.4G Wireless, Robot Starter Kit with PDF Guidebook/Tutorial</a>
-  </td>
-  <td><img src="projects/Adeept_Smart_Car_Kit/Adeept_RC_Car/pics/0a53ef6784.jpg" width="150"/></td>
-</tr>
-  
+
 <tr><td>
-Project Link: <a href="projects/4WD_RC_Car_AddeptDriverBoard">Software for 4WD Car - based on Arduino Uno and Adeept Smart Car Motor Driver</a>
-  </td>
-  <td><img src="projects/4WD_RC_Car_AddeptDriverBoard/pics/20181220_181335.jpg" width="150"/></td>
-</td></tr>
-  
+<center>
+<a href="/projects/RC_transmitter"><b>Remote Controller - Transmitter</b>
+</ br>
+<img src="projects/RC_Transmitter/pics/20180218_134300_small.jpg"/> </a> </center>
+</td> <td>
+This remote control can control remote device via radio 2.4Ghz. It can connect the the device from the other projects. There is also a menu which allows the user to switch between the remote devices. 
+</td> </tr>
+
+<tr><td>
+<center>
+<a href="/lib/RC_Library"><b>Remote Controller Library</b>
+</a> </center>
+</td> <td>
+This library contains the classes which are shared between remote controller and remote devices. 
+(It's actually not a single project but a dependency for almost every project within this repository.)
+</td> </tr>
+
+<tr><td>
+<center>
+<a href="/projects/Original_Adeept_Car_Kit_from2016/"><b>Original Adeept Smart Car from 2016</b>
+</ br>
+<img src="/projects/Original_Adeept_Car_Kit_from2016/pics/RC-car_small.jpg"/> </a> </center>
+</td> <td>
+This "Remote Control Smart Car Kit" can be purchased from <a href="http://www.adeept.com">Adeept</a>. It is also based on arduino boards and the NRF24L01 wireless board. This source code comes originally from Adeept and is intended for the Arduino sitting on the smart car. (This code is untouched and is documented here as a reference implementation and backup)
+</td> </tr>
+
+<tr><td>
+<center>
+<a href="/projects/Original_Adeept_Car_Kit_from2016/"><b>Original Adeept Remote Controller from 2016</b>
+</ br>
+<img src="/projects/Original_Adeept_Car_Kit_from2016/pics/e17cf9cd00_small.jpg"/> </a> </center>
+</td> <td>
+The Remote Control from <a href="http://www.adeept.com">Adeept</a> was contained within the smart car kit package but can also be purchased as single component. Also this code comes originally from Adeept and is documented here as reference implementation and backup.
+</td> </tr>
+
+<tr><td>
+<center>
+<a href="/projects/Adeept_Smart_Car_Kit/"><b>Adeept Smart Car from 2016 reimplementation</b>
+</ br>
+<img src="/projects/Adeept_Smart_Car_Kit/pics/RC-car_small.jpg"/> </a> </center>
+</td> <td>
+This is a complete reimplementation of the original "Adeept Smart Car Project". It works in conjunction with both remote controls and doesn't contain the autonomous driving part yet.
+</td> </tr>
+
+<tr><td>
+<center>
+<a href="/projects/Adeept_Smart_Car_Kit/"><b>Adeept Remote Controller from 2016 adjustment</b>
+</ br>
+<img src="/projects/Adeept_Smart_Car_Kit/pics/a39f8f1001_small.jpg"/> </a> </center>
+</td> <td>
+In this project I also took the Remote Control from <a href="http://www.adeept.com">Adeept</a> and based on the originally code I made it compatible with the implementation for my remote devices. Therefore I used the <a herf="/lib/RC_Library">remote controller library</a> from above. 
+</td> </tr>
+
+<tr><td>
+<center>
+<a href="/projects/4WD_RC_Car_AddeptDriverBoard/"><b>4WD Car based on Adeept Board</b>
+</ br>
+<img src="/projects/4WD_RC_Car_AddeptDriverBoard/pics/20181220_181335_small.jpg"/> </a> </center>
+</td> <td>
+In this project I built a 4WD Car based on an Arduino Uno Board, the Motor Driver Board from <a href="http://www.adeept.com">Adeept</a> and self-3d-printed car platform. The car is compatible to both remote controllers.
+</td> </tr>
+
 </table>
 
-# Build and upload subprojects to a micro controller
-This repo is based on [platformio](http://docs.platformio.org) and all subprojects can be build by executing the following command in the root folder:
+# How to build the Projects
 
+This whole repository is based on platformio and the projects in here are actually define as different environment in the [platformio.ini](/platformio.ini) file. Have a look into the file for more details. 
+As prerequisite for building this repository you need to install [platformio](https://platformio.org/platformio-ide). I personally install [VSCode](https://code.visualstudio.com) and within VSCode I installed the [platformio-ide extension](https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide). 
+By executing the following commands you can build all projects within one sitting:
+<b>
 ```bash
-pio run   # Builds all
+git clone https://github.com/grimmpp/radio-controlled-arduino-devices.git   # download the repository from git
+cd radio-controlled-arduino-devices                                         # go into the repository root directory
+pio run                                                                     # download all dependencies initially and builds all projects
 ```
+</b>
 
-You can also specify one specific subproject by using an environment in order to build and upload it to a device. The environments can be found in the [platformio.ini](platformio.ini) file.
-
-If you want to upload a subproject to a micro controller just define the subproject by an environment and choose the target upload. In the following example I choose Transmitter_ButtonsController as environment. 
+## Build this Repository in a Docker Container
+I've provided a [dockerfile](docker/Dockerfile) which creates a docker image. This docker image contains everything to run platformio in order to build this whole repository. During the docker image build process the repository will be downloaded and built. The image consists mainly of ubuntu, python2, platformio, and contains this repository. The only prerequisite is to have [docker](https://www.docker.com/get-started) or [docker toolbox](https://docs.docker.com/v17.12/toolbox/) installed. I recommend not to use docker for windows because the feature for mapping usb ports is not yet implemented. 
+By executing the following command the docker image will be created:
+<b>
 ```bash
-pio run -e Transmitter_ButtonsController -t upload  # Uploads only the subproject Transmitter_ButtonsController
+cd radio-controlled-arduino-devices             # go into the repository root directory
+docker build -t arduino-rc-devices-docker .     # builds the docker image
 ```
+</b>
 
-All definitions about which environments exist and which boards I used is defined in [platformio.ini](platformio.ini) file.
-
-You can check whether your uploads worked by having a look on the device monitor. Therefore just let the usb cable plugged in the board and execute the following command. I used for all boards the baud rate of 115200. The port will usually be chosen automatically.
-
+You can use the docker image as build and/or development environment for this repository. Just start the image by using the following command:
+<b>
 ```bash
-cd arduino-rc-transmitter     # Go into the repo root directory
-pio device monitor -b 115200  # Start serial monitor to see logs from board
+docker run -it arduino-rc-devices-docker   # Start docker container
 ```
-
-
-## Build Repo in Docker Image
-I've provided a [dockerfile](docker/Dockerfile) which creates a docker image. This docker image contains everything to run platformio in order to build the repo. It consists mainly of ubuntu, python2, platformio, and this repo. The only prerequisite is to have [docker](https://www.docker.com/get-started) or [docker toolbox](https://docs.docker.com/v17.12/toolbox/) installed. By executing the following command the docker image will be created containing the latest repo version which will be also build during the image creation.
-
-```bash
-cd arduino-rc-transmitter                       # go into the repo root directory
-docker build -t arduino-rc-transmitter docker   # builds the docker image
-```
-
-You can use the docker image as build and/or development environment. Just start the image by using the following command:
-
-```bash
-docker run -it arduino-rc-transmitter   # Start docker container
-```
-
-Now you can reuse the command from above to build the projects and upload the binary code to micro controllers. You can find therefore the repo downloaded and prepared in */home/arduino-rc-transmitter*.
+</b>
+Now you can reuse the command from above to build the projects and upload the binary code to micro controllers. You can find therefore the repository downloaded and prepared in <b>/home/arduino-rc-transmitter</b>.
 
 # Pictures
 <table><tr>
-  <td><img src="projects/RC_Transmitter/pics/20180218_134300.jpg" width="150"/></td>
-  <td><img src="projects/RC_Transmitter/pics/20180211_222924.jpg" width="150"/></td>
-  <td><img src="projects/RC_Transmitter/pics/20180211_224645.jpg" width="150"/></td>
-  <td><img src="projects/RC_Transmitter/pics/20180203_153620.jpg" width="150"/></td>
+  <td><img src="projects/RC_Transmitter/pics/20180218_134300_small.jpg" /></td>
+  <td><img src="projects/RC_Transmitter/pics/20180213_222848_small.jpg" /></td>
+  <td><img src="projects/RC_Transmitter/pics/20180211_224645_small.jpg" /></td>
+  <td><img src="projects/RC_Transmitter/pics/schema_small.jpg" /></td>
 </tr><tr>
-  <td><img src="projects/RC_Transmitter/pics/20180211_224707.jpg" width="150"/></td>
-  <td><img src="projects/RC_Transmitter/pics/20180213_222834.jpg" width="150"/></td>
-  <td><img src="projects/RC_Transmitter/pics/20180213_222848.jpg" width="150"/></td>
-  <td><img src="projects/RC_Transmitter/pics/20180128_221520.jpg" width="150"/></td>
-</tr><tr>
-  <td><img src="projects/RC_Transmitter/pics/schema.jpg" width="150"/></td>
+  <td><img src="projects/4WD_RC_Car_AddeptDriverBoard/pics/20181220_181335_small.jpg"/></td>
+  <td><img src="projects/4WD_RC_Car_AddeptDriverBoard/pics/20181218_135337_small.jpg" /></td>
+  <td><img src="projects/Adeept_Smart_Car_Kit/pics/0a53ef6784_small.jpg" /></td>
+  <td><img src="projects/Adeept_Smart_Car_Kit/pics/7501327fc2_small.jpg" /></td>
 </tr></table>
