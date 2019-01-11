@@ -81,20 +81,18 @@ As prerequisite for building this repository you need to install [platformio](ht
 This example:
 1. downloads the whole repository from git,
 2. goes into the repository root folder,
-3. and executes the build command from platformio. It will initially download all dependencies and packages and then it will build all projects mentioned above. At the end of the whole procedure you will get a summary and state of what was built and if it were successfully.
-<b>
+3. and executes the build command from platformio. It will initially download all dependencies and packages and then it will build all projects mentioned above. At the end of the whole procedure you will get a summary and state of what was built and if it were successfully. 
 ```bash
 git clone https://github.com/grimmpp/radio-controlled-arduino-devices.git   # download the repository from git
 cd radio-controlled-arduino-devices                                         # go into the repository root directory
 pio run                                                                     # download all dependencies initially and builds all projects
 ```
-</b>
-
+ 
 The projects in here are actually define as different environment in the [platformio.ini](/platformio.ini) file. Have a look into the file for more details. 
 You can also specify one specific project by using an environment in order to build only one and upload it to a device.
 
 If you want to upload a project to a micro controller just choose the project by passing an environment name and the target upload. In the following example I choose *Transmitter_ButtonsController* as environment. This example will build the project and upload the binaries in an Arduino Nano is connected to an USB Port.
-<b>
+<b> 
 ```bash
 pio run -e Transmitter_ButtonsController -t upload  # Uploads only the subproject Transmitter_ButtonsController
 ```
