@@ -30,5 +30,6 @@ The mounting of the motors and the frame where the Arduino Uno sits on is 3d-pri
 * [Adeept Motorsheeld](http://www.adeept.com/motorshield-for-uno_p0088.html)
 * Transceiver NRF24l01 + Antenna
 
+**Other Parts:**
 * A few screws and cables 
 
