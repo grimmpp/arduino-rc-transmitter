@@ -12,7 +12,7 @@ You can find the descriptions of the single projects within the subfolders of th
 
 <tr><td>
 <center>
-<a href="/projects/RC_transmitter/README.md"><b>Remote Controller - Transmitter</b>
+<a href="/projects/RC_Transmitter"><b>Remote Controller - Transmitter</b>
 </ br>
 <img src="projects/RC_Transmitter/pics/20180218_134300_small.jpg"/> </a> </center>
 </td> <td>
