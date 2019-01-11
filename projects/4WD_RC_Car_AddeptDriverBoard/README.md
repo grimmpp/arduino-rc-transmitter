@@ -4,7 +4,7 @@ This subproject contains the software for my self-developed and self-3d-pringed 
 
 The electronics are composed of a simple Arduino Uno and a motor driver board from Adeept. <br />
 <a href="/projects/4WD_RC_Car_AddeptDriverBoard/pics/7501327fc2.jpg">
-  <img src="/projects/4WD_RC_Car_AddeptDriverBoard/pics/7501327fc2_small.jpg""/></a>
+<img src="/projects/4WD_RC_Car_AddeptDriverBoard/pics/7501327fc2_small.jpg"/></a>
 
 The software for this 4WD Remote Control Car is compatible to the [RC Transmitter](/projects/RC_Transmitter) project. 
 
