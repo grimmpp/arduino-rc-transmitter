@@ -34,6 +34,48 @@ void setup() {
 	Serial.println("Started");
 }
 
+int calcSpeedLeft(int x, int y) {
+	//center
+	int _x = x - 255/2;
+	int _y = y - 255/2;
+	int result = 0;
+
+	if (abs(_x)>10 || abs(_y)>10) {
+		if (_y > 0) {
+			if (_x > 0) result = max(_x,_y);
+			else result = _y + 2*_x/3;
+		} 
+		else {
+			if (_x > 0) result = min(-1*_x,_y);
+			else result = _y - 2*_x/3;
+		}
+	} 
+	result = result + 255/2;
+	result = max(0,min(254, result));
+	return result;
+}
+
+int calcSpeedRight(int x, int y) {
+	//center
+	int _x = x - 255/2;
+	int _y = y - 255/2;
+	int result = 0;
+
+	if (abs(_x)>10 || abs(_y)>10) {
+		if (_y > 0) {
+			if (_x > 0) result = _y - 2*_x/3;
+			else result = max(-1*_x,_y);
+		} 
+		else {
+			if (_x > 0) result = _y + 2*_x/3;
+			else result = min(_x,_y);
+		}
+	} 
+	result = result + 255/2;
+	result = max(0,min(254, result));
+	return result;
+}
+
 int timeout = 0;
 void receiveData(){
 
@@ -46,30 +88,8 @@ void receiveData(){
 		if (nrfMsg.initialized) {
 			Serial.println("Received data");
 
-			int speedRight = nrfMsg.poti_right_Y;
-			int speedLeft = nrfMsg.poti_right_Y;
-
-			int speed = nrfMsg.poti_right_Y;
-
-			// if active
-			int steeringVal = abs(nrfMsg.poti_right_X - 255/2 );
-			if (steeringVal > 10) {
-				int dSpeed = (int)( steeringVal * ( (double)map(abs(255/2 - speed), 0,255/2, 100, 200) / 100.0 ) );
-				// forward
-				if (speed > 255/2) {
-					// go left
-					if (nrfMsg.poti_right_X < 255/2) speedLeft = max(0, speed - dSpeed);
-					// go right
-					else  speedRight = max(0, speed - dSpeed);
-				}
-				// backwards
-				else {
-					// go left
-					if (nrfMsg.poti_right_X < 255/2) speedLeft = min(255, speed + dSpeed);
-					// go right
-					else  speedRight = min(255, speed + dSpeed);
-				}
-			}
+			int speedLeft = calcSpeedLeft(nrfMsg.poti_right_X, nrfMsg.poti_right_Y);
+			int speedRight = calcSpeedRight(nrfMsg.poti_right_X, nrfMsg.poti_right_Y);
 
 			Serial.print("SL: "); Serial.print(speedLeft); Serial.print("SR: "); Serial.print(speedRight); Serial.println();
 			motorRight.setSpeed(speedRight);
