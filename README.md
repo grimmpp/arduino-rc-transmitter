@@ -78,13 +78,14 @@ In this project I built a 4WD Car based on an Arduino Uno Board, the Motor Drive
 # Build and Upload Projects to an Arduino
 This repository is based on [platformio](http://docs.platformio.org) and all projects in this repository can be build by executing the following command. 
 As prerequisite for building this repository you need to install [platformio](https://platformio.org/platformio-ide). I personally install [VSCode](https://code.visualstudio.com) and within VSCode I installed the [platformio-ide extension](https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide). 
-This example:
-1. downloads the whole repository from git,
-2. goes into the repository root folder,
-3. and executes the build command from platformio. It will initially download all dependencies and packages and then it will build all projects mentioned above. At the end of the whole procedure you will get a summary and state of what was built and if it were successfully. 
+Build this project:
+1. clone the whole repository from git,
+2. go into the repository root folder,
+3. and executes the build command from platformio. It will initially download all dependencies and packages and then it will build all projects mentioned above. At the end of the whole procedure you will get a summary and state of what was built and if it were built successfully. 
 ```bash
 git clone https://github.com/grimmpp/radio-controlled-arduino-devices.git   # download the repository from git
 cd radio-controlled-arduino-devices                                         # go into the repository root directory
+# pio lib install SoftwareSerial RF24 TFT Servo                             # optionally: but sometime under Windows it does not download the libraries properly
 pio run                                                                     # download all dependencies initially and builds all projects
 ```
  
