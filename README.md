@@ -114,7 +114,7 @@ I've provided a [dockerfile](docker/Dockerfile) which creates a docker image. Th
 By executing the following command the docker image will be created:
 <b>
 ```bash
-cd radio-controlled-arduino-devices             # go into the repository root directory
+cd radio-controlled-arduino-devices/docker             # go into the repository's docker directory
 docker build -t arduino-rc-devices-docker .     # builds the docker image
 ```
 </b>
