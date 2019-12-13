@@ -85,7 +85,6 @@ Build this project:
 ```bash
 git clone https://github.com/grimmpp/radio-controlled-arduino-devices.git   # download the repository from git
 cd radio-controlled-arduino-devices                                         # go into the repository root directory
-# pio lib install SoftwareSerial RF24 TFT Servo                             # optionally: but sometime under Windows it does not download the libraries properly
 pio run                                                                     # download all dependencies initially and builds all projects
 ```
  
