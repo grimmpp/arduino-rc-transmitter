@@ -38,22 +38,25 @@ void setup() {
 
 void loop() {
   // put the values of rocker, switch and potentiometer into the array
-  nrfMsg.poti_right_X = max(0, min(254, analogRead(PinAssign::MotorPin)/4));
+  nrfMsg.poti_right_X = 254 - max(0, min(254, analogRead(PinAssign::MotorPin)/4));
   nrfMsg.poti_right_Y = max(0, min(254, analogRead(PinAssign::ServoPin)/4));
   Serial.print("poti right X: ");
   Serial.print(nrfMsg.poti_right_X);
   Serial.print(", Y: ");
   Serial.println(nrfMsg.poti_right_Y);
 
-  nrfMsg.poti_left_X = max(0, min(254, analogRead(PinAssign::ultrasonicPin)/4));
-  nrfMsg.poti_left_Y = 254/2;
+  nrfMsg.poti_left_X = 254 - max(0, min(254, analogRead(PinAssign::ultrasonicPin)/4));
+  nrfMsg.poti_left_Y = max(0, min(254, analogRead(1)/4));;
 
-  nrfMsg.btn_top_left = digitalRead(PinAssign::APin);
-  nrfMsg.btn_middle_left = digitalRead(PinAssign::BPin);
-  nrfMsg.btn_middle_right = digitalRead(PinAssign::CPin);
-  nrfMsg.btn_top_right = digitalRead(PinAssign::DPin);
+  nrfMsg.btn_bottom_right = 0;
+  nrfMsg.btn_bottom_left = 0;
+  nrfMsg.btn_top_left = 1- digitalRead(PinAssign::APin);
+  nrfMsg.btn_middle_left = 1- digitalRead(PinAssign::BPin);
+  nrfMsg.btn_middle_right = 1- digitalRead(PinAssign::CPin);
+  nrfMsg.btn_top_right = 1- digitalRead(PinAssign::DPin);
   nrfMsg.mode = getNextMode(nrfMsg.mode, nrfMsg.btn_middle_left, nrfMsg.btn_middle_right);
 
+  nrfMsg.print();
   
   // blue potis are ignored
   //data[6] = analogRead(PinAssign::pot5Pin);
@@ -70,14 +73,20 @@ void loop() {
   delay(50);
   digitalWrite(PinAssign::led1Pin,LOW);
 
-  if(nrfMsg.mode=='A'){
+  if(nrfMsg.mode == 'A'){
     digitalWrite(PinAssign::led2Pin,HIGH);
     digitalWrite(PinAssign::led3Pin,LOW);
   }
-  if(nrfMsg.mode=='B'){
+  else if(nrfMsg.mode == 'B'){
       digitalWrite(PinAssign::led2Pin,LOW);
       digitalWrite(PinAssign::led3Pin,HIGH);
+  } 
+  else {
+    digitalWrite(PinAssign::led2Pin,LOW);
+    digitalWrite(PinAssign::led3Pin,LOW);
   }
+
+  delay(50);
 }
 
 static char getNextMode(char currentMode, int pin1Value, int pin2Value) {
